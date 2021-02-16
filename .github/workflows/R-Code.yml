@@ -4,7 +4,7 @@
 
 ## Load the data
 library(readxl)
-df <- read_excel("C:/Users/44753/Desktop/E2.xlsx")
+df <- read_excel("E2.xlsx")
 View(df)
 
 ## Install the required functions for the Logistic Regression, Cross-Validation and plotting
@@ -19,8 +19,8 @@ library(“cowplot”)
 ## PREP THE DATASET
 
 ## Change the description of the outcome variable
-df$Engagement[df$Engagement==0] <- "Engaged"
-df$Engagement[df$Engagement==1] <- "Did not Engage"
+df$Engagement[df$Engagement==1] <- "Engaged"
+df$Engagement[df$Engagement==0] <- "Did not Engage"
 
 ## Convert the outcome variable to type factor and check it’s classification afterwards
 df$Engagement <- as.factor(df$Engagement)
