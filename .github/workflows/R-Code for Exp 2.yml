@@ -46,19 +46,6 @@
     1 - pchisq(2*(ll.proposed - ll.null), df=1)
     1 - pchisq((mylogit$null.deviance - mylogit$deviance), df=1)
 
-## PLOTTING THE PREDICTIONS OF THE LOGISTIC REGRESSION
-
-## Plotting what the Logistic Regression predicts, based on trait-suspicion scores
-    predicted.data <- data.frame(
-        probability.of.engagement=mylogit$fitted.values)
-    predicted.data <- data.frame(
-        probability.of.engagement=mylogit$fitted.values,
-        GCS=df$GCS)
-    ggplot(data=predicted.data, aes(x=GCS, y=probability.of.engagement)) +
-        geom_point(aes(color=GCS), size=5) +
-        xlab("GCS") +
-        ylab("Predicted probability of engaging with the confidence trick")
-  
 ## CROSS VALIDATION
 
 ## Set a random seed
@@ -90,3 +77,15 @@
     summary(model1)
 
  
+## PLOTTING THE PREDICTIONS OF THE LOGISTIC REGRESSION
+
+## Plotting what the Logistic Regression predicts, based on trait-suspicion scores
+    predicted.data <- data.frame(
+        probability.of.engagement=mylogit$fitted.values)
+    predicted.data <- data.frame(
+        probability.of.engagement=mylogit$fitted.values,
+        GCS=df$GCS)
+    ggplot(data=predicted.data, aes(x=GCS, y=probability.of.engagement)) +
+        geom_point(aes(color=GCS), size=5) +
+        xlab("GCS") +
+        ylab("Predicted probability of engaging with the confidence trick")
