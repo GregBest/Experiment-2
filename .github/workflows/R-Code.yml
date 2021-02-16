@@ -34,6 +34,9 @@ mylogit <- glm(Engagement ~ GCS, data = df, family = "binomial")
 ## View output of logistic regression 
 summary(mylogit)
 
+## View odd ratios and 95% CI
+exp(cbind(OR = coef(mylogit), confint(mylogit)))
+
 ## Calculate the ‘McFadden’s’ Pseudo R-squared
 ll.null <- mylogit$null.deviance/-2
 ll.proposed <- mylogit$deviance/-2
